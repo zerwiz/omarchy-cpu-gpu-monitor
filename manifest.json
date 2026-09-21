@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.zerwiz.cpu-gpu-monitor",
+  "name": "CPU/GPU Monitor",
+  "version": "1.0.0",
+  "author": "zerwiz",
+  "license": "MIT",
+  "description": "Show CPU and GPU load with power profile switching",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "CPU/GPU Monitor",
+    "description": "Shows CPU/GPU usage and power profile controls",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 3,
+      "showCpu": true,
+      "showGpu": true,
+      "showPowerProfiles": true
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 3
+      },
+      {
+        "key": "showCpu",
+        "type": "boolean",
+        "label": "Show CPU usage",
+        "defaultValue": true
+      },
+      {
+        "key": "showGpu",
+        "type": "boolean",
+        "label": "Show GPU usage",
+        "defaultValue": true
+      },
+      {
+        "key": "showPowerProfiles",
+        "type": "boolean",
+        "label": "Show power profile controls",
+        "defaultValue": true
+      }
+    ]
+  }
+}
