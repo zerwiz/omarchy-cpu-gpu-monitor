@@ -125,7 +125,7 @@ Panel {
         id: button
         anchors.fill: parent
         bar: root.bar
-        text: root.showGpu && root.gpuData.gpuUtil ? root.gpuData.gpuUtil + "%" : (root.showCpu ? root.cpuData.usagePercent + "%" : "⚡")
+        text: (root.showCpu ? "CPU " + root.cpuData.usagePercent + "%" : "") + (root.showCpu && root.showGpu ? "  " : "") + (root.showGpu ? "GPU " + root.gpuData.gpuUtil + "%" : "") || "⚡"
         slotSize: Style.bar.iconSlot
         tooltipText: (root.showCpu ? "CPU: " + root.cpuData.usagePercent + "%" : "") + (root.showCpu && root.showGpu ? " | " : "") + (root.showGpu ? "GPU: " + root.gpuData.gpuUtil + "%" : "")
         onPressed: function(b) {
