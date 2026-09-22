@@ -121,12 +121,18 @@ Panel {
         refresh()
     }
 
-    BarIconButton {
+    WidgetButton {
         id: button
         anchors.fill: parent
         bar: root.bar
-        text: (root.showCpu ? "CPU " + root.cpuData.usagePercent + "%" : "") + (root.showCpu && root.showGpu ? "  " : "") + (root.showGpu ? "GPU " + root.gpuData.gpuUtil + "%" : "") || "⚡"
-        slotSize: Style.bar.iconSlot
+        text: {
+            var parts = []
+            if (root.showCpu) parts.push("CPU " + root.cpuData.usagePercent + "%")
+            if (root.showGpu) parts.push("GPU " + root.gpuData.gpuUtil + "%")
+            return parts.length > 0 ? parts.join("  ") : "⚡"
+        }
+        fontSize: Style.font.caption
+        horizontalMargin: 6
         tooltipText: (root.showCpu ? "CPU: " + root.cpuData.usagePercent + "%" : "") + (root.showCpu && root.showGpu ? " | " : "") + (root.showGpu ? "GPU: " + root.gpuData.gpuUtil + "%" : "")
         onPressed: function(b) {
             if (b === Qt.LeftButton) root.toggle()
