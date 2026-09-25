@@ -48,6 +48,11 @@ omarchy bar move io.github.zerwiz.cpu-gpu-monitor --section right
 omarchy plugin remove io.github.zerwiz.cpu-gpu-monitor
 ```
 
+## Contributors
+
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) — **zerwiz (Josef Lindbom)**, author and
+maintainer.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
